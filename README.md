@@ -1,4 +1,6 @@
 # php-to-go
+[![Build Status](https://travis-ci.org/mweibel/php-to-go.svg?branch=master)](https://travis-ci.org/mweibel/php-to-go)
+[![Coverage Status](https://coveralls.io/repos/github/mweibel/php-to-go/badge.svg?branch=master)](https://coveralls.io/github/mweibel/php-to-go?branch=master)
 
 Library for generating Go structs using [sheriff](https://github.com/liip/sheriff) out of PHP models which use [JMS Serializer](https://jmsyst.com/libs/serializer).
 

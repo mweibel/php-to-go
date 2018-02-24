@@ -11,8 +11,17 @@
   ],
   "autoload": {
     "psr-4": {
-      "PHPToGo\\": "src/",
+      "PHPToGo\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
       "PHPToGo\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "0.1.x-dev"
     }
   },
   "require": {
@@ -23,6 +32,7 @@
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^2.10",
     "phpunit/phpunit": "^7",
-    "spatie/temporary-directory": "^1.1"
+    "spatie/temporary-directory": "^1.1",
+    "php-coveralls/php-coveralls": "^2.0"
   }
 }
