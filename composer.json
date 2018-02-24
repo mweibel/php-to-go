@@ -1,0 +1,28 @@
+{
+  "name": "php-to-go",
+  "description": "Utility to generate go types from php models",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Michael Weibel",
+      "email": "michael.weibel@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "PHPToGo\\": "src/",
+      "PHPToGo\\Tests\\": "tests/"
+    }
+  },
+  "require": {
+    "php": ">=7.1",
+    "doctrine/annotations": "^1.3",
+    "jms/serializer": "^1.4"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.10",
+    "phpunit/phpunit": "^7",
+    "spatie/temporary-directory": "^1.1"
+  }
+}

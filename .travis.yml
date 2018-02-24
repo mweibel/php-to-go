@@ -1,0 +1,17 @@
+language: php
+php:
+  - '7.1'
+
+sudo: false
+
+before_install:
+  - composer self-update
+install:
+  - composer install
+script:
+  - ./vendor/bin/php-cs-fixer -v --dry-run --diff --using-cache=no
+  - ./vendor/bin/phpunit
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
