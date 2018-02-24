@@ -52,10 +52,23 @@ class CodeGeneratorTest extends TestCase
         $generator->generate();
 
         $expectedDir = dirname(__FILE__).'/output';
+        $files = [];
         foreach (glob($expectedDir.'/*.go') as $expectedFile) {
             $name = basename($expectedFile);
 
+            $files[$name] = true;
+
             $this->assertFileEquals($expectedFile, $this->targetDirectory.'/'.$name);
+        }
+        foreach (glob($this->targetDirectory.'/*.go') as $actualFile) {
+            $name = basename($actualFile);
+            if (isset($files[$name])) {
+                continue;
+            }
+
+            $files[$name] = true;
+
+            $this->assertFileEquals($expectedDir.'/'.$name, $actualFile);
         }
     }
 }
