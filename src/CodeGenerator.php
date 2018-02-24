@@ -6,6 +6,9 @@ use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\IndexedReader;
 use JMS\Serializer\TypeParser;
 
+/**
+ * Generates go code by parsing PHP classes.
+ */
 class CodeGenerator
 {
     private const PHP_TO_GO_TYPES = [
@@ -93,6 +96,9 @@ class CodeGenerator
         $this->typeParser = new TypeParser();
     }
 
+    /**
+     * Start code generation
+     */
     public function generate()
     {
         $this->copyDataTypes();
@@ -150,6 +156,11 @@ class CodeGenerator
         return str_replace($goPath.'/', '', $absolute);
     }
 
+    /**
+     * Reads the annotations and generates attributes out of it.
+     *
+     * @param Type $type
+     */
     private function generateModel(Type $type)
     {
         $reflClass = new \ReflectionClass($type->getFullClassName());
@@ -188,6 +199,8 @@ class CodeGenerator
     }
 
     /**
+     * Parses an annotation.
+     *
      * @param mixed $annotation
      * @return array
      */
@@ -238,6 +251,12 @@ class CodeGenerator
         return $propertyAnnotations;
     }
 
+    /**
+     * Tries to figure out which Go type to use.
+     *
+     * @param array $type
+     * @return string
+     */
     private function parseType(array $type): string
     {
         switch (count($type['params'])) {
@@ -269,6 +288,10 @@ class CodeGenerator
         }
     }
 
+    /**
+     * @param string $type
+     * @return null|string
+     */
     private function convertPHPToGoType(string $type): ?string
     {
         if (isset(self::PHP_TO_GO_TYPES[$type])) {
@@ -284,6 +307,8 @@ class CodeGenerator
     }
 
     /**
+     * Uses echo to log if verbose is true.
+     *
      * @param $str
      */
     private function log(string $str)
@@ -293,6 +318,9 @@ class CodeGenerator
         }
     }
 
+    /**
+     * Copies the required data types file.
+     */
     private function copyDataTypes()
     {
         $dest = implode(DIRECTORY_SEPARATOR, [$this->targetDirectory, 'datatypes']);

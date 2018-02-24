@@ -2,6 +2,9 @@
 
 namespace PHPToGo;
 
+/**
+ * Contains parsed information of a type.
+ */
 class Type
 {
     /**
@@ -53,6 +56,8 @@ class Type
     }
 
     /**
+     * Updates Type with parsed attributes.
+     *
      * @param array $attrs
      * @param bool $needsAfterMarshal
      */
@@ -86,6 +91,13 @@ class Type
         return $this->className;
     }
 
+    /**
+     * Writes file.
+     *
+     * @param string $targetDirectory
+     * @param string $packageName
+     * @param string $packagePath
+     */
     public function write(string $targetDirectory, string $packageName, string $packagePath)
     {
         $path = implode(DIRECTORY_SEPARATOR, [$targetDirectory, strtolower($this->className) . '_generated.go']);

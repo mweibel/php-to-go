@@ -9,7 +9,7 @@ before_install:
 install:
   - composer install
 script:
-  - ./vendor/bin/php-cs-fixer -v --dry-run --diff --using-cache=no
+  - ./vendor/bin/php-cs-fixer fix . -v --dry-run --diff --using-cache=no
   - ./vendor/bin/phpunit
 
 cache:
