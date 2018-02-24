@@ -12,7 +12,7 @@ script:
   - ./vendor/bin/php-cs-fixer fix . -v --dry-run --diff --using-cache=no
   - ./vendor/bin/phpunit --coverage-clover coverage.xml
 after_success:
-  - travis_retry ./vendor/bin/php-coveralls
+  - travis_retry ./vendor/bin/php-coveralls -x coverage.xml
 
 cache:
   directories:
