@@ -106,6 +106,12 @@ class RootModel extends AbstractModel implements InterfaceModel
     public $someDateIntl;
 
     /**
+     * @var string
+     * @Serializer\Exclude
+     */
+    public $excludedField;
+
+    /**
      * @Serializer\Since("3")
      * @Serializer\Type("PHPToGo\Tests\fixtures\AnotherModel")
      * @Serializer\Groups({"api"})
