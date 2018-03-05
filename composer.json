@@ -1,5 +1,5 @@
 {
-  "name": "php-to-go",
+  "name": "mweibel/php-to-go",
   "description": "Utility to generate go types from php models",
   "minimum-stability": "stable",
   "license": "MIT",
