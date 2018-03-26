@@ -331,7 +331,7 @@ class CodeGenerator
     {
         $dest = implode(DIRECTORY_SEPARATOR, [$this->targetDirectory, 'datatypes']);
         @mkdir($dest);
-        $fileGlob = implode(DIRECTORY_SEPARATOR, ['.', 'datatypes', '*.go']);
+        $fileGlob = implode(DIRECTORY_SEPARATOR, [__DIR__, '..', 'datatypes', '*.go']);
         foreach (glob($fileGlob) as $file) {
             @copy($file, $dest.DIRECTORY_SEPARATOR.basename($file));
         }
