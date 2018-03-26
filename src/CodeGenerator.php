@@ -3,8 +3,14 @@
 namespace PHPToGo;
 
 use Doctrine\Common\Annotations\AnnotationReader;
+use Doctrine\Common\Annotations\AnnotationRegistry;
 use Doctrine\Common\Annotations\IndexedReader;
 use JMS\Serializer\TypeParser;
+
+// Registry doesn't find JMS\Serializer annotations otherwise. This is kinda ugly but works well.
+// Also `registerLoader()` seems to be deprecated but points to using `registerLoader()`
+// as a temporary alternative for a workaround..?
+AnnotationRegistry::registerLoader('class_exists');
 
 /**
  * Generates go code by parsing PHP classes.
